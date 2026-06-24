@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0B2545; /* Azul Institucional COEMCO */
-            --accent-color: #C5A028;  /* Dorado */
+            --primary-color: #0B2545; 
+            --accent-color: #C5A028;  
             --secondary-bg: #EEF4F8;
             --text-dark: #1D2A44;
             --border-radius: 8px;
@@ -30,6 +30,7 @@
             text-align: center;
             border-bottom: 4px solid var(--accent-color);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .navbar h1 {
@@ -37,13 +38,39 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.6rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
 
         .navbar p {
             margin: 5px 0 0 0;
             font-size: 0.9rem;
             color: #A5C4D4;
+        }
+
+        .nav-btn {
+            position: absolute;
+            right: 20px;
+            top: 22px;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding-bottom: 60px; }
+            .nav-btn { position: relative; display: inline-block; top: 10px; right: 0; }
         }
 
         .main-container {
@@ -61,20 +88,9 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .info-card p {
-            margin: 0 0 10px 0;
-            font-size: 0.95rem;
-        }
-
-        .info-card a {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .info-card a:hover {
-            text-decoration: underline;
-        }
+        .info-card p { margin: 0 0 10px 0; font-size: 0.95rem; }
+        .info-card a { color: var(--primary-color); font-weight: 600; text-decoration: none; }
+        .info-card a:hover { text-decoration: underline; }
 
         form {
             background: white;
@@ -89,19 +105,12 @@
             padding-bottom: 20px;
         }
 
-        .form-section:last-of-type {
-            border-bottom: none;
-        }
-
         .section-heading {
             font-family: 'Montserrat', sans-serif;
             color: var(--primary-color);
             font-size: 1.2rem;
             margin-top: 0;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .form-row {
@@ -111,38 +120,19 @@
         }
 
         @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
 
         input[type="text"], textarea, select {
             width: 100%;
             padding: 12px;
             border: 1px solid #CBD5E1;
             border-radius: var(--border-radius);
-            font-family: inherit;
-            font-size: 0.95rem;
             box-sizing: border-box;
-            transition: border-color 0.2s;
-        }
-
-        input[type="text"]:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.1);
+            font-family: inherit;
         }
 
         .checkbox-group {
@@ -150,25 +140,13 @@
             padding: 20px;
             border-radius: var(--border-radius);
             display: grid;
-            grid-template-columns: 1fr;
             gap: 12px;
         }
 
-        .checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            font-weight: 400;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
+        .checkbox-label { display: flex; align-items: flex-start; cursor: pointer; font-size: 0.95rem; }
+        .checkbox-label input { margin-top: 4px; margin-right: 12px; }
 
-        .checkbox-label input {
-            margin-top: 4px;
-            margin-right: 12px;
-            transform: scale(1.1);
-        }
-
-        button {
+        .submit-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -179,131 +157,4 @@
             border-radius: var(--border-radius);
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px 6px rgba(11, 37, 69, 0.15);
-        }
-
-        button:hover {
-            background-color: #14355E;
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.85rem;
-            color: #64748B;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar">
-        <h1>Colegio Concepción Hualqui</h1>
-        <p>Plan de Formación Ciudadana • Registro de Evidencia Pedagógica</p>
-    </nav>
-
-    <div class="main-container">
-        
-        <div class="info-card">
-            <p><strong>Manual de Consulta Docente:</strong> Para realizar una correcta vinculación curricular, recuerde revisar los documentos institucionales y legales vigentes:</p>
-            <p>• <a href="https://www.coemco.cl/wp-content/uploads/2019/10/MODELO-DE-FORMACIO%CC%81N-CIUDADANA-1.pdf" target="_blank">Modelo de Formación Ciudadana COEMCO (PDF)</a></p>
-            <p>• <a href="https://www.bcn.cl/leychile/navegar?idNorma=1088963" target="_blank">Ley N° 20.911 - Biblioteca del Congreso Nacional</a></p>
-        </div>
-
-        <!-- REEMPLAZA EL ENLACE DEL ACTION CON TU URL DE FORMSPREE -->
-        <form action="https://formspree.io/f/xzdlzqrz" method="POST" id="pfcForm">
-            
-            <!-- SECCIÓN 1 -->
-            <div class="form-section">
-                <h2 class="section-heading">1. Identificación General</h2>
-                
-                <div class="form-group">
-                    <label for="profesor">Nombre completo del Profesor/a:</label>
-                    <input type="text" id="profesor" name="Nombre_Profesor" required placeholder="Ej. María González Cárdenas">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="asignatura">Asignatura / Taller:</label>
-                        <input type="text" id="asignatura" name="Asignatura" required placeholder="Ej. Historia, Geografía y CC.SS.">
-                    </div>
-                    <div class="form-group">
-                        <label for="curso">Curso o Nivel:</label>
-                        <input type="text" id="curso" name="Curso" required placeholder="Ej. 8° Año Básico A">
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECCIÓN 2 -->
-            <div class="form-section">
-                <h2 class="section-heading">2. Acción Pedagógica en el Aula</h2>
-                <div class="form-group">
-                    <label for="objetivo">Objetivo de la Clase / Objetivo de Aprendizaje (OA):</label>
-                    <textarea id="objetivo" name="Objetivo_Clase" rows="4" required placeholder="Escriba detalladamente el objetivo trabajado en la sesión..."></textarea>
-                </div>
-            </div>
-
-            <!-- SECCIÓN 3 -->
-            <div class="form-section">
-                <h2 class="section-heading">3. Habilidades Genéricas - Modelo COEMCO (Tabla 3, Pág. 59)</h2>
-                <label style="font-weight: 400; margin-bottom: 12px; color: #475569;">Seleccione las habilidades corporativas que se promovieron activamente durante la clase (Seleccione al menos una):</label>
-                
-                <div class="checkbox-group" id="coemcoGroup">
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="1. Pensamiento crítico y reflexivo"> 1. Pensamiento crítico y reflexivo</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="2. Comunicación y argumentación"> 2. Comunicación y argumentación</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="3. Resolución de problemas y conflictos"> 3. Resolución de problemas y conflictos</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="4. Participación y trabajo colaborativo"> 4. Participación y trabajo colaborativo</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="5. Discernimiento ético"> 5. Discernimiento ético</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="6. Valoración de la diversidad y derechos humanos"> 6. Valoración de la diversidad y derechos humanos</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="7. Conciencia histórica y social"> 7. Conciencia histórica y social</label>
-                </div>
-            </div>
-
-            <!-- SECCIÓN 4 -->
-            <div class="form-section">
-                <h2 class="section-heading">4. Objetivos de la Ley N° 20.911</h2>
-                <div class="form-group">
-                    <label for="ley">Eje o lineamiento de la ley impactado prioritariamente:</label>
-                    <select id="ley" name="Objetivo_Ley_20911" required>
-                        <option value="" disabled selected>Seleccione el objetivo de la ley...</option>
-                        <option value="Fomento de la cultura democrática y ética institucional">Fomento de la cultura democrática y ética institucional</option>
-                        <option value="Promover el conocimiento y respeto de los Derechos Humanos">Promover el conocimiento y respeto de los Derechos Humanos</option>
-                        <option value="Comprensión y valoración del concepto de ciudadanía">Comprensión y valoración del concepto de ciudadanía</option>
-                        <option value="Fomentar el principio de transparencia y probidad">Fomentar el principio de transparencia y probidad</option>
-                        <option value="Respeto al pluralismo, la diversidad y la tolerancia">Respeto al pluralismo, la diversidad y la tolerancia</option>
-                        <option value="Fomentar la participación en temas de interés público">Fomentar la participación en temas de interés público</option>
-                    </select>
-                </div>
-            </div>
-
-            <button type="submit" id="submitBtn">Enviar Registro a Encargatura</button>
-        </form>
-
-        <footer class="footer">
-            &copy; 2026 Colegio Concepción Hualqui • Corporación Educacional Masónica de Concepción
-        </footer>
-    </div>
-
-    <script>
-        // Validación del lado del cliente para asegurar que elijan al menos un checkbox
-        document.getElementById('pfcForm').addEventListener('submit', function(e) {
-            const checkboxes = document.querySelectorAll('input[name="Habilidad_COEMCO[]"]:checked');
-            if (checkboxes.length === 0) {
-                e.preventDefault(); // Detiene el envío
-                alert('Por favor, seleccione al menos una Habilidad Genérica del Modelo COEMCO antes de enviar.');
-                return false;
-            }
-            
-            // Cambia el estado del botón al procesar el envío
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = 'Enviando Reporte...';
-            btn.style.backgroundColor = '#64748B';
-            btn.style.cursor = 'not-allowed';
-        });
-    </script>
-</body>
-</html>
+            box-shadow: 0 4px 6px rgba(11
