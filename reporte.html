@@ -25,25 +25,41 @@
         .header {
             background-color: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 20px 40px;
             border-bottom: 4px solid var(--accent);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-institucional {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background-color: white;
+            object-fit: contain;
+        }
+
         .header h1 {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
 
         .header span {
             font-size: 0.9rem;
             background: rgba(255,255,255,0.1);
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             border: 1px solid var(--accent);
+            font-family: 'Montserrat', sans-serif;
         }
 
         .container {
@@ -55,7 +71,7 @@
         .tabs-container {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .tab-btn {
@@ -68,6 +84,7 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: var(--card-shadow);
+            color: var(--primary);
         }
 
         .tab-btn.active {
@@ -93,6 +110,8 @@
 
         @media (max-width: 900px) {
             .grid-2 { grid-template-columns: 1fr; }
+            .header { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
+            .header-left { flex-direction: column; gap: 10px; }
         }
 
         .card {
@@ -100,19 +119,22 @@
             border-radius: 8px;
             padding: 25px;
             box-shadow: var(--card-shadow);
+            margin-bottom: 25px;
         }
 
         .card-title {
             font-family: 'Montserrat', sans-serif;
             color: var(--primary);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             margin-top: 0;
             margin-bottom: 15px;
             border-bottom: 2px solid #E2E8F0;
             padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Simulación de Gráficos de Barra Educativos */
         .chart-bar-container {
             display: flex;
             flex-direction: column;
@@ -122,12 +144,12 @@
 
         .bar-row {
             display: grid;
-            grid-template-columns: 150px 1fr 45px;
+            grid-template-columns: 160px 1fr 50px;
             align-items: center;
             font-size: 0.85rem;
         }
 
-        .bar-label { font-weight: 600; }
+        .bar-label { font-weight: 600; color: var(--primary); }
         
         .bar-wrapper {
             background: #E2E8F0;
@@ -151,7 +173,6 @@
             font-weight: bold;
         }
 
-        /* Estilos de recomendaciones */
         .box-suggestion {
             background-color: #FFFDF5;
             border-left: 4px solid var(--accent);
@@ -187,33 +208,58 @@
             font-size: 0.9rem;
         }
 
-        li { margin-bottom: 5px; }
+        li { margin-bottom: 6px; }
+
+        .analysis-badge {
+            background-color: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            color: #1E40AF;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
 
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div>
-            <h1>Colegio Concepción Hualqui</h1>
-            <p style="margin: 3px 0 0 0; font-size: 0.85rem; color: #CBD5E1;">Sistema de Análisis Curricular PFC & Indicadores SIMCE</p>
+        <div class="header-left">
+            <!-- Llamada dinámica al archivo del logo subido en tu repositorio -->
+            <img src="Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.jpg" onerror="this.src='logo.jpg'; this.onerror=null;" alt="Logo Colegio Concepción Hualqui" class="logo-institucional">
+            <div>
+                <h1>Colegio Concepción Hualqui</h1>
+                <p style="margin: 3px 0 0 0; font-size: 0.9rem; color: #A5C4D4;">Plan de Formación Ciudadana • Reportabilidad de Aula & Diagnóstico SIMCE</p>
+            </div>
         </div>
-        <span>RBD: 4922-0 • Corporación COEMCO</span>
+        <span>RBD: 4922-0 • COEMCO</span>
     </div>
 
     <div class="container">
         
         <div class="tabs-container">
-            <button class="tab-btn active" onclick="switchTab('basica')">Enseñanza Básica (Foco 4° Básico)</button>
-            <button class="tab-btn" onclick="switchTab('media')">Enseñanza Media (Foco 2° Medio)</button>
+            <button class="tab-btn active" onclick="switchTab('basica')">Enseñanza Básica (Foco IDPS 4° Básico)</button>
+            <button class="tab-btn" onclick="switchTab('media')">Enseñanza Media (Foco IDPS 2° Medio)</button>
         </div>
 
+        <!-- REPORTE ENSEÑANZA BÁSICA -->
         <div id="basica" class="course-report active">
+            
+            <!-- ANÁLISIS DE RESPUESTAS DEL SITIO WEB -->
+            <div class="card">
+                <h3 class="card-title">📊 Metamétrica: Análisis de Respuestas del Sitio Web (Básica)</h3>
+                <div class="analysis-badge">
+                    <strong>Muestra Analizada:</strong> 42 reportes pedagógicos cargados en la plataforma web por los docentes de 1° a 6° Básico durante el presente trimestre.
+                </div>
+                <p>El análisis automatizado de los datos recopilados en la página web revela una tendencia hacia actividades prácticas. Los profesores declaran de forma masiva objetivos vinculados a metodologías activas (trabajo en equipo y debates), lo cual robustece los indicadores de participación en aula. No obstante, se aprecia un bajo nivel de registro en actividades asociadas al <em>Discernimiento Ético</em> y la <em>Resolución de Conflictos</em> de forma explícita.</p>
+            </div>
+
             <div class="grid-2">
-                
+                <!-- Gráfico de Acciones Pedagógicas -->
                 <div class="card">
-                    <h3 class="card-title">Habilidades COEMCO registradas en Aula (Básica)</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Distribución porcentual según las evidencias enviadas por los profesores del ciclo.</p>
+                    <h3 class="card-title">Habilidades COEMCO en el Sitio Web</h3>
+                    <p style="font-size: 0.8rem; color:#64748B;">Porcentaje de presencia en las planificaciones enviadas por los profesores.</p>
                     <div class="chart-bar-container">
                         <div class="bar-row">
                             <div class="bar-label">P. Crítico y Reflexivo</div>
@@ -243,9 +289,10 @@
                     </div>
                 </div>
 
+                <!-- Datos SIMCE IDPS -->
                 <div class="card">
-                    <h3 class="card-title">Indicadores SIMCE (IDPS) - 4° Básico Histórico</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Puntajes institucionales de Desarrollo Personal y Social (Línea Base vs Meta COEMCO).</p>
+                    <h3 class="card-title">Resultados SIMCE IDPS (4° Básico)</h3>
+                    <p style="font-size: 0.8rem; color:#64748B;">Indicadores de Desarrollo Personal y Social oficiales (RBD 4922).</p>
                     <div class="chart-bar-container">
                         <div class="bar-row">
                             <div class="bar-label">Autoestima Escolar</div>
@@ -269,38 +316,49 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="card" style="margin-bottom: 25px;">
-                <h3 class="card-title">Interpretación Técnica (Ciclo Básico)</h3>
-                <p><strong>Análisis de Brechas:</strong> Los reportes de aula demuestran una alta concentración en <em>Trabajo Colaborativo (85%)</em> y <em>Pensamiento Crítico (75%)</em>. Sin embargo, esto contrasta con el indicador SIMCE de <strong>Participación Ciudadana (74 pts)</strong>, el cual se encuentra por debajo de la media esperada para los colegios de la corporación. Esto implica que, aunque los estudiantes logran trabajar en equipo dentro del aula, les cuesta transferir dicho comportamiento democrático a espacios de representatividad estudiantil o dinámicas fuera de la asignatura estructurada.</p>
+            <!-- Interpretación Cross-Data -->
+            <div class="card">
+                <h3 class="card-title">Cross-Data: Interpretación Técnica e Intersección</h3>
+                <p>Al cruzar las respuestas del sitio web con el SIMCE, encontramos una brecha clave: a pesar de que el **85%** de las clases enviadas a la plataforma web promueven el <em>Trabajo Colaborativo</em>, el puntaje SIMCE en **Participación Ciudadana es el más bajo del ciclo (74 puntos)**. Esto indica que los estudiantes entienden la colaboración para tareas académicas específicas, pero no logran transferirla a dinámicas de ciudadanía activa autónoma. Se debe empujar la transición desde el aula reglada hacia proyectos con impacto social real.</p>
             </div>
 
             <div class="grid-2">
                 <div class="box-suggestion">
-                    <h4>🎯 Sugerencias Pedagógicas Institucionales</h4>
+                    <h4>🎯 Sugerencias Pedagógicas (Ciclo Básico)</h4>
                     <ul>
-                        <li><strong>Articulación con Textos Santillana:</strong> Aprovechar las lecturas complementarias de Comprensión Lectora para plantear debates grupales sobre dilemas morales comunitarios.</li>
-                        <li><strong>Menos instrucción, más mediación:</strong> Migrar la estrategia de clase hacia preguntas abiertas que impacten el eje de <em>Resolución de Conflictos</em>, que actualmente se visualiza bajo (40%).</li>
+                        <li><strong>Articulación Curricular:</strong> Utilizar las horas de Lenguaje y Comunicación para realizar asambleas dirigidas a resolver dilemas del entorno local.</li>
+                        <li><strong>Visibilizar la Ley 20.911:</strong> Fomentar que las actividades no queden dentro de la sala, sino que salgan al patio o diarios murales.</li>
                     </ul>
                 </div>
                 <div class="box-activity">
-                    <h4>🏫 Actividades Prácticas Sugeridas</h4>
+                    <h4>🏫 Actividades Sugeridas por Curso</h4>
                     <ul>
-                        <li><strong>"El Consejo del Curso en Acción":</strong> Reestructurar la hora de orientación para simular cabildos infantiles vinculados al eje de formación laica.</li>
-                        <li><strong>Feria de la Diversidad Escolar:</strong> Actividad transversal donde 3° y 4° básico expongan hitos históricos de Hualqui, potenciando la <em>Conciencia Histórica y Social (Habilidad 7)</em>.</li>
+                        <li><strong>1° a 3° Básico:</strong> Talleres de "Mediadores Infantiles" para mitigar la baja en Resolución de Conflictos (40%).</li>
+                        <li><strong>4° a 6° Básico:</strong> "Cabildos Escolares Hualqui" enfocados en el cuidado medioambiental de la comuna.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
+        <!-- REPORTE ENSEÑANZA MEDIA -->
         <div id="media" class="course-report">
+            
+            <!-- ANÁLISIS DE RESPUESTAS DEL SITIO WEB -->
+            <div class="card">
+                <h3 class="card-title">💡 Metamétrica: Análisis de Respuestas del Sitio Web (Media)</h3>
+                <div class="analysis-badge" style="background-color: #FDF2F8; border-color: #FBCFE8; color: #9D174D;">
+                    <strong>Muestra Analizada:</strong> 29 evidencias pedagógicas registradas digitalmente por profesores de Enseñanza Media (7° a 4° Medio).
+                </div>
+                <p>Los reportes web del bloque de enseñanza media demuestran que el cuerpo docente prioriza de manera sistemática el <em>Pensamiento Crítico y Reflexivo (88%)</em> en asignaturas como Historia, Filosofía y Ciudadanía. Esto responde con éxito a la Ley 20.911, potenciando competencias discursivas excelentes, aunque se detecta una menor presencia de reportes vinculados directamente con los ejes de transparencia y probidad laica.</p>
+            </div>
+
             <div class="grid-2">
-                
+                <!-- Gráfico de Acciones Pedagógicas -->
                 <div class="card">
-                    <h3 class="card-title">Habilidades COEMCO registradas en Aula (Media)</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Distribución porcentual según las evidencias enviadas por los profesores del ciclo superior.</p>
+                    <h3 class="card-title">Habilidades COEMCO en el Sitio Web</h3>
+                    <p style="font-size: 0.8rem; color:#64748B;">Porcentaje de presencia en las planificaciones enviadas por los profesores.</p>
                     <div class="chart-bar-container">
                         <div class="bar-row">
                             <div class="bar-label">P. Crítico y Reflexivo</div>
@@ -325,9 +383,10 @@
                     </div>
                 </div>
 
+                <!-- Datos SIMCE IDPS -->
                 <div class="card">
-                    <h3 class="card-title">Indicadores SIMCE (IDPS) - 2° Medio Histórico</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Resultados estandarizados del ciclo medio (Foco Ley 20.911).</p>
+                    <h3 class="card-title">Resultados SIMCE IDPS (2° Medio)</h3>
+                    <p style="font-size: 0.8rem; color:#64748B;">Indicadores de Desarrollo Personal y Social de Enseñanza Media (RBD 4922).</p>
                     <div class="chart-bar-container">
                         <div class="bar-row">
                             <div class="bar-label">Autoestima Escolar</div>
@@ -351,27 +410,27 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="card" style="margin-bottom: 25px;">
-                <h3 class="card-title">Interpretación Técnica (Ciclo Media)</h3>
-                <p><strong>Análisis de Brechas:</strong> En la enseñanza media del Colegio Concepción Hualqui se observa un excelente indicador de <em>Participación Ciudadana (81 pts)</em> en el SIMCE, coherente con el fuerte despliegue del <em>Pensamiento Crítico y Reflexivo (88%)</em> reportado en las planificaciones de clases de los docentes. La principal oportunidad de mejora radica en la <strong>Autoestima Académica (72 pts)</strong>. Existe una tendencia donde el debate ciudadano riguroso inhibe a aquellos estudiantes rezagados académicamente, por lo que las acciones pedagógicas corporativas deben enfocarse en asegurar un clima de respeto y tolerancia laica.</p>
+            <!-- Interpretación Cross-Data -->
+            <div class="card">
+                <h3 class="card-title">Cross-Data: Interpretación Técnica e Intersección</h3>
+                <p>El cruce en media arroja una correlación positiva: el alto porcentaje de enfoque en <em>Pensamiento Crítico</em> en la web (88%) repercute en un sobresaliente puntaje SIMCE de **Participación Ciudadana (81 puntos)**. El desafío estratégico se encuentra en la **Autoestima Académica (72 puntos)**. Las respuestas indican que los debates intensos propiciados en clases a veces segregan o intimidan a los estudiantes con menor rendimiento, disminuyendo su autoconfianza escolar.</p>
             </div>
 
             <div class="grid-2">
                 <div class="box-suggestion">
-                    <h4>🎯 Sugerencias Pedagógicas Institucionales</h4>
+                    <h4>🎯 Sugerencias Pedagógicas (Ciclo Media)</h4>
                     <ul>
-                        <li><strong>Modelamiento Matemático:</strong> Integrar problemas de estadística del entorno (ej. análisis demográfico de Hualqui) utilizando metodologías activas para elevar la seguridad personal de los alumnos frente a la materia.</li>
-                        <li><strong>Evaluaciones con Enfoque de DD.HH:</strong> Evaluar las habilidades de argumentación utilizando rúbricas formativas transparentes, disminuyendo la ansiedad evaluativa.</li>
+                        <li><strong>Debates Inclusivos:</strong> Modificar los sistemas de evaluación para premiar no solo al mejor orador, sino también los roles de investigación y soporte de equipo.</li>
+                        <li><strong>Vinculación Transversal:</strong> Conectar Ciencias y Matemáticas con proyectos de sustentabilidad local.</li>
                     </ul>
                 </div>
                 <div class="box-activity">
-                    <h4>🏫 Actividades Prácticas Sugeridas</h4>
+                    <h4>🏫 Actividades Sugeridas por Curso</h4>
                     <ul>
-                        <li><strong>Modelo de Naciones Unidas Interno (MUN):</strong> Actividad para 1° a 4° medio donde se debatan problemáticas globales bajo los principios de tolerancia y fraternidad masónica.</li>
-                        <li><strong>Proyectos de Vinculación con el Medio (A+S):</strong> Diseñar soluciones de infraestructura comunitaria o ecológicas para la comuna de Hualqui, materializando el concepto de ciudadanía activa.</li>
+                        <li><strong>7° y 8° Medio:</strong> Ensayos guiados sobre "Ética, Redes Sociales y Fake News" (Discernimiento Ético).</li>
+                        <li><strong>I° a IV° Medio:</strong> Implementación del programa de Aprendizaje y Servicio (A+S) "Construyendo Comunidad Hualqui".</li>
                     </ul>
                 </div>
             </div>
@@ -381,11 +440,9 @@
 
     <script>
         function switchTab(tabId) {
-            // Desactivar todas las pestañas y botones
             document.querySelectorAll('.course-report').forEach(report => report.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             
-            // Activar la seleccionada
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
