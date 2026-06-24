@@ -157,4 +157,105 @@
             border-radius: var(--border-radius);
             cursor: pointer;
             width: 100%;
-            box-shadow: 0 4px 6px rgba(11
+            box-shadow: 0 4px 6px rgba(11, 37, 69, 0.15);
+        }
+
+        .submit-btn:hover { background-color: #14355E; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Colegio Concepción Hualqui</h1>
+        <p>Plan de Formación Ciudadana • Registro de Evidencia Pedagógica</p>
+        <a href="reporte.html" class="nav-btn">Ver Reportes y Gráficos</a>
+    </nav>
+
+    <div class="main-container">
+        
+        <div class="info-card">
+            <p><strong>Manual de Consulta Docente:</strong> Recuerde revisar los documentos institucionales:</p>
+            <p>• <a href="https://www.coemco.cl/wp-content/uploads/2019/10/MODELO-DE-FORMACIO%CC%81N-CIUDADANA-1.pdf" target="_blank">Modelo de Formación Ciudadana COEMCO (PDF)</a></p>
+            <p>• <a href="https://www.bcn.cl/leychile/navegar?idNorma=1088963" target="_blank">Ley N° 20.911 - Biblioteca del Congreso Nacional</a></p>
+        </div>
+
+        <form action="https://formspree.io/f/tu_codigo_aquí" method="POST" id="pfcForm">
+            
+            <div class="form-section">
+                <h2 class="section-heading">1. Identificación General</h2>
+                <div class="form-group">
+                    <label for="profesor">Nombre completo del Profesor/a:</label>
+                    <input type="text" id="profesor" name="Nombre_Profesor" required placeholder="Ej. María González Cárdenas">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="asignatura">Asignatura / Taller:</label>
+                        <input type="text" id="asignatura" name="Asignatura" required placeholder="Ej. Historia">
+                    </div>
+                    <div class="form-group">
+                        <label for="curso">Curso o Nivel:</label>
+                        <input type="text" id="curso" name="Curso" required placeholder="Ej. 8° Básico A">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-heading">2. Acción Pedagógica en el Aula</h2>
+                <div class="form-group">
+                    <label for="objetivo">Objetivo de la Clase / Objetivo de Aprendizaje (OA):</label>
+                    <textarea id="objetivo" name="Objetivo_Clase" rows="4" required placeholder="Escriba el objetivo trabajado..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-heading">3. Habilidades Genéricas - Modelo COEMCO (Pág. 59)</h2>
+                <label style="font-weight: 400; margin-bottom: 12px; display:block;">Seleccione al menos una:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="1. Pensamiento crítico"> 1. Pensamiento crítico y reflexivo</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="2. Comunicación"> 2. Comunicación y argumentación</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="3. Resolución de problemas"> 3. Resolución de problemas y conflictos</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="4. Participación"> 4. Participación y trabajo colaborativo</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="5. Discernimiento ético"> 5. Discernimiento ético</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="6. Diversidad y DD.HH."> 6. Valoración de la diversidad y derechos humanos</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Habilidad_COEMCO[]" value="7. Conciencia histórica"> 7. Conciencia histórica y social</label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-heading">4. Objetivos de la Ley N° 20.911</h2>
+                <div class="form-group">
+                    <label for="ley">Eje de la ley impactado prioritariamente:</label>
+                    <select id="ley" name="Objetivo_Ley_20911" required>
+                        <option value="" disabled selected>Seleccione el objetivo...</option>
+                        <option value="Cultura democrática">Fomento de la cultura democrática y ética institucional</option>
+                        <option value="Derechos Humanos">Promover el conocimiento y respeto de los Derechos Humanos</option>
+                        <option value="Ciudadanía">Comprensión y valoración del concepto de ciudadanía</option>
+                        <option value="Transparencia">Fomentar el principio de transparencia y probidad</option>
+                        <option value="Pluralismo">Respeto al pluralismo, la diversidad y la tolerancia</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Enviar Registro a Encargatura</button>
+        </form>
+
+        <footer style="text-align: center; padding: 20px; color: #64748B; font-size: 0.85rem;">
+            &copy; 2026 Colegio Concepción Hualqui • COEMCO
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('pfcForm').addEventListener('submit', function(e) {
+            const checkboxes = document.querySelectorAll('input[name="Habilidad_COEMCO[]"]:checked');
+            if (checkboxes.length === 0) {
+                e.preventDefault();
+                alert('Por favor, seleccione al menos una Habilidad Genérica del Modelo COEMCO.');
+                return false;
+            }
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = 'Enviando Reporte...';
+            btn.style.backgroundColor = '#64748B';
+        });
+    </script>
+</body>
+</html>
