@@ -147,12 +147,16 @@
             display: inline-block;
         }
 
+        /* GRÁFICOS MULTILEVEL COMPARATIVOS */
         .chart-bar-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
         .bar-row { display: grid; grid-template-columns: 170px 1fr 50px; align-items: center; font-size: 0.85rem; }
         .bar-label { font-weight: 600; color: var(--primary); }
         .bar-wrapper { background: #E2E8F0; border-radius: 4px; height: 18px; overflow: hidden; }
         .bar-fill { height: 100%; background: var(--primary); border-radius: 4px; }
         .bar-fill.accent { background: var(--accent); }
+        .bar-fill.level-4b { background: #3B82F6; }
+        .bar-fill.level-8b { background: #F97316; }
+        .bar-fill.level-2m { background: #10B981; }
         .value-text { text-align: right; font-weight: bold; }
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
@@ -162,8 +166,15 @@
         .box-suggestion h4 { margin: 0 0 5px 0; color: #78350F; font-family: 'Montserrat'; }
         .box-activity { background-color: #F0FDF4; border-left: 4px solid #22C55E; padding: 15px; border-radius: 4px; }
         .box-activity h4 { margin: 0 0 5px 0; color: #14532D; font-family: 'Montserrat'; }
+        
         ul { margin: 0; padding-left: 20px; font-size: 0.9rem; }
+        li { margin-bottom: 6px; }
+        
         .analysis-badge { background-color: #EFF6FF; border: 1px solid #BFDBFE; color: #1E40AF; padding: 12px 15px; border-radius: 6px; font-size: 0.9rem; margin-bottom: 15px; }
+        
+        .legend-container { display: flex; gap: 15px; font-size: 0.8rem; margin-bottom: 15px; font-weight: bold; }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .dot { width: 12px; height: 12px; border-radius: 3px; }
     </style>
 </head>
 <body>
@@ -173,136 +184,4 @@
             <img src="Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.jpg" onerror="this.src='Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.JPG'; this.onerror=function(){this.src='logo.jpg'}" alt="Logo Colegio Concepción Hualqui" class="logo-institucional">
             <div>
                 <h1>Colegio Concepción Hualqui</h1>
-                <p style="margin: 3px 0 0 0; font-size: 0.9rem; color: #A5C4D4;">Reporte Técnico PFC & Indicadores SIMCE (RBD 4922)</p>
-            </div>
-        </div>
-        <a href="index.html" class="nav-btn">Volver al Formulario</a>
-    </div>
-
-    <div class="container">
-        
-        <div class="tabs-container">
-            <button class="tab-btn active" onclick="switchTab('basica')">Enseñanza Básica (1°-6°)</button>
-            <button class="tab-btn" onclick="switchTab('octavo')">8° Año Básico (SIMCE 2025)</button>
-            <button class="tab-btn" onclick="switchTab('media')">Enseñanza Media (I°-IV°)</button>
-        </div>
-
-        <div id="basica" class="course-report active">
-            <div class="card">
-                <h3 class="card-title">📊 Resumen Cuantitativo: Enseñanza Básica</h3>
-                <div class="analysis-badge">Módulo de monitoreo inicial para el primer ciclo básico.</div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
-                        <tbody><tr><td><strong>4° Básico A</strong></td><td>Historia y Geografía</td><td><span class="badge-habilidad">Pensamiento crítico y reflexivo</span></td></tr></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Indicadores SIMCE (IDPS) - 4° Básico</h3>
-                <div class="chart-bar-container">
-                    <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 74%;"></div></div><div class="value-text">74 pts</div></div>
-                    <div class="bar-row"><div class="bar-label">Convivencia Escolar</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 82%;"></div></div><div class="value-text">82 pts</div></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="octavo" class="course-report">
-            <div class="card">
-                <h3 class="card-title">📊 Diagnóstico Técnico: 8° Año Básico (Corte 2025)</h3>
-                <div class="analysis-badge" style="background-color: #FFF7ED; border-color: #FED7AA; color: #9A3412;">
-                    <strong>Foco SIMCE 2025:</strong> Este nivel representa la línea base más reciente del establecimiento previa a la transición a Enseñanza Media.
-                </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="3" style="text-align: center; color: #64748B; padding: 20px;">Esperando ingresos de profesores de 8° Básico en el sitio web...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <h3 class="card-title">Indicadores SIMCE (IDPS) - 8° Básico 2025</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Resultados oficiales Agencia de Calidad (RBD 4922).</p>
-                    <div class="chart-bar-container">
-                        <div class="bar-row">
-                            <div class="bar-label">Autoestima Académica</div>
-                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 75%;"></div></div>
-                            <div class="value-text">75 pts</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Convivencia Escolar</div>
-                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 79%;"></div></div>
-                            <div class="value-text">79 pts</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Participación Ciudadana</div>
-                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 71%;"></div></div>
-                            <div class="value-text">71 pts</div>
-                        </div>
-                        <div class="bar-row">
-                            <div class="bar-label">Hábitos de Vida Sal.</div>
-                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 76%;"></div></div>
-                            <div class="value-text">76 pts</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title">Análisis de Brechas (8° Básico)</h3>
-                    <p><strong>Triangulación Técnica:</strong> Los resultados del SIMCE 2025 en 8° básico muestran una **Participación Ciudadana (71 pts)** que se sitúa por debajo de los promedios históricos de 4° básico y 2° medio. Esto sugiere que el sentido de pertenencia y civismo tiende a debilitarse en el paso de la pre-adolescencia. El Plan de Formación Ciudadana en este nivel debe enfocarse en re-encantar al estudiante con los procesos democráticos escolares.</p>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="box-suggestion">
-                    <h4>🎯 Sugerencias Pedagógicas (8° Básico)</h4>
-                    <ul>
-                        <li><strong>Liderazgo y Mediación:</strong> Capacitar a los estudiantes en resolución de conflictos entre pares para elevar la percepción de convivencia.</li>
-                        <li><strong>Debates de Transición:</strong> Preparar foros sobre la Ley 20.911 enfocados en los desafíos de la vida en Enseñanza Media.</li>
-                    </ul>
-                </div>
-                <div class="box-activity">
-                    <h4>🏫 Actividades Recomendadas</h4>
-                    <ul>
-                        <li><strong>"Mi Primer Voto":</strong> Simulación de procesos electorales estudiantiles con apoyo del TRICEL del colegio.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="media" class="course-report">
-            <div class="card">
-                <h3 class="card-title">📊 Resumen Cuantitativo: Enseñanza Media</h3>
-                <div class="table-container">
-                    <table class="data-table">
-                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
-                        <tbody><tr><td><strong>2° Medio B</strong></td><td>Educación Ciudadana / Historia</td><td><span class="badge-habilidad" style="background-color:#FDF2F8; color:#9D174D; border-left-color:#9D174D;">Participación y trabajo colab.</span></td></tr></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Indicadores SIMCE (IDPS) - 2° Medio</h3>
-                <div class="chart-bar-container">
-                    <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 81%;"></div></div><div class="value-text">81 pts</div></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.course-report').forEach(report => report.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+                <p style="margin: 3px 0 0
