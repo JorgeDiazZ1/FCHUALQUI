@@ -184,4 +184,146 @@
             <img src="Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.jpg" onerror="this.src='Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.JPG'; this.onerror=function(){this.src='logo.jpg'}" alt="Logo Colegio Concepción Hualqui" class="logo-institucional">
             <div>
                 <h1>Colegio Concepción Hualqui</h1>
-                <p style="margin: 3px 0 0
+                <p style="margin: 3px 0 0 0; font-size: 0.9rem; color: #A5C4D4;">Reporte Técnico PFC & Indicadores SIMCE (RBD 4922)</p>
+            </div>
+        </div>
+        <a href="index.html" class="nav-btn">Volver al Formulario</a>
+    </div>
+
+    <div class="container">
+        
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="switchTab('basica')">Enseñanza Básica (1°-6°)</button>
+            <button class="tab-btn" onclick="switchTab('octavo')">8° Año Básico (Evidencias)</button>
+            <button class="tab-btn" onclick="switchTab('media')">Enseñanza Media (I°-IV°)</button>
+            <button class="tab-btn" onclick="switchTab('simce-global')" style="background-color: #FFFBEB; border-color: #FEF3C7;">📊 Macro Análisis SIMCE 2025-2026</button>
+        </div>
+
+        <div id="basica" class="course-report active">
+            <div class="card">
+                <h3 class="card-title">📊 Resumen Cuantitativo: Enseñanza Básica</h3>
+                <div class="analysis-badge">Módulo de monitoreo inicial para el primer ciclo básico.</div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
+                        <tbody><tr><td><strong>4° Básico A</strong></td><td>Historia y Geografía</td><td><span class="badge-habilidad">Pensamiento crítico y reflexivo</span></td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Indicadores SIMCE (IDPS) - 4° Básico Baseline</h3>
+                <div class="chart-bar-container">
+                    <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill level-4b" style="width: 74%;"></div></div><div class="value-text">74 pts</div></div>
+                    <div class="bar-row"><div class="bar-label">Convivencia Escolar</div><div class="bar-wrapper"><div class="bar-fill level-4b" style="width: 82%;"></div></div><div class="value-text">82 pts</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="octavo" class="course-report">
+            <div class="card">
+                <h3 class="card-title">📊 Evidencias de Aula: 8° Año Básico</h3>
+                <div class="analysis-badge">Monitoreo de ingresos de la Ley 20.911 para el nivel octavo.</div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
+                        <tbody>
+                            <tr><td colspan="3" style="text-align: center; color: #64748B; padding: 20px;">Esperando ingresos de profesores de 8° Básico en el sitio web...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="media" class="course-report">
+            <div class="card">
+                <h3 class="card-title">📊 Resumen Cuantitativo: Enseñanza Media</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
+                        <tbody><tr><td><strong>2° Medio B</strong></td><td>Educación Ciudadana / Historia</td><td><span class="badge-habilidad" style="background-color:#FDF2F8; color:#9D174D; border-left-color:#9D174D;">Participación y trabajo colab.</span></td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="simce-global" class="course-report">
+            
+            <div class="card">
+                <h3 class="card-title">📈 Diagnóstico Comparativo Simultáneo - SIMCE 2025</h3>
+                <p style="font-size: 0.85rem; color: #64748B;">Triangulación de las mediciones oficiales del RBD 4922 en los tres ciclos evaluados simultáneamente.</p>
+                
+                <div class="legend-container">
+                    <div class="legend-item"><div class="dot" style="background:#3B82F6;"></div> 4° Básico</div>
+                    <div class="legend-item"><div class="dot" style="background:#F97316;"></div> 8° Básico (2025)</div>
+                    <div class="legend-item"><div class="dot" style="background:#10B981;"></div> 2° Medio</div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="bar-row"><div class="bar-label" style="color: #1E3A8A;">PC - 4° Básico</div><div class="bar-wrapper"><div class="bar-fill level-4b" style="width: 74%;"></div></div><div class="value-text">74 pts</div></div>
+                    <div class="bar-row"><div class="bar-label" style="color: #7C2D12;">PC - 8° Básico</div><div class="bar-wrapper"><div class="bar-fill level-8b" style="width: 71%;"></div></div><div class="value-text">71 pts</div></div>
+                    <div class="bar-row"><div class="bar-label" style="color: #064E3B;">PC - 2° Medio</div><div class="bar-wrapper"><div class="bar-fill level-2m" style="width: 81%;"></div></div><div class="value-text">81 pts</div></div>
+                    
+                    <div style="height: 10px; border-bottom: 1px dashed #CBD5E1; margin: 10px 0;"></div>
+                    
+                    <div class="bar-row"><div class="bar-row"><div class="bar-label" style="color: #1E3A8A;">AA - 4° Básico</div></div><div class="bar-wrapper"><div class="bar-fill level-4b" style="width: 78%;"></div></div><div class="value-text">78 pts</div></div>
+                    <div class="bar-row"><div class="bar-label" style="color: #7C2D12;">AA - 8° Básico</div><div class="bar-wrapper"><div class="bar-fill level-8b" style="width: 75%;"></div></div><div class="value-text">75 pts</div></div>
+                    <div class="bar-row"><div class="bar-label" style="color: #064E3B;">AA - 2° Medio</div><div class="bar-wrapper"><div class="bar-fill level-2m" style="width: 72%;"></div></div><div class="value-text">72 pts</div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">💡 Vinculación Cruzada entre Indicadores</h3>
+                <p>El cruce cualitativo de variables revela dos fenómenos determinantes para el Colegio Concepción Hualqui:</p>
+                <ul>
+                    <li><strong>Efecto Embudo en Autoestima Académica:</strong> Existe una caída sistemática en la confianza académica conforme avanza la escolaridad: <strong>4° Básico (78 pts) ➔ 8° Básico (75 pts) ➔ 2° Medio (72 pts)</strong>. Esto coincide directamente con la complejización de la evaluación y la falta de metodologías de retroalimentación constructiva en aula.</li>
+                    <li><strong>El Quiebre de Participación en 8° Básico:</strong> Mientras que el Clima de Convivencia Escolar se muestra robusto en todo el colegio (promedio de 80 puntos), la <strong>Participación Ciudadana cae a su mínimo histórico en 8° Básico con 71 puntos</strong>. Esto demuestra que los estudiantes de 8° perciben el entorno como seguro, pero sienten que carecen de canales reales de representatividad e injerencia en las decisiones escolares. En contraste, en 2° Medio sube a <strong>81 puntos</strong> potenciado por el ramo de Educación Ciudadana.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="background-color: #FAFAF9; border: 1px solid #E7E5E4;">
+                <h3 class="card-title" style="color:#1E293B;">🚀 Plan de Acción Pedagógico y Necesidades - SIMCE 2026</h3>
+                <p style="font-size: 0.85rem; color:#64748B;">Planificación de contingencia técnica para los cursos que se medirán en el próximo periodo escolar.</p>
+                
+                <div class="grid-2">
+                    <div class="box-suggestion" style="background-color: #EFF6FF; border-left-color: #3B82F6;">
+                        <h4 style="color:#1E40AF;">📌 Foco 4° Año Básico (Meta: PC ➔ 78 pts)</h4>
+                        <p style="font-size:0.8rem; font-weight:bold;">Necesidad Técnica: Estimular la deliberación activa inicial.</p>
+                        <ul>
+                            <li><strong>Actividad Core:</strong> <em>"Consejos de Curso Deliberativos con Acta"</em>. Implementar una estructura fija semanal donde el docente actúe como moderador laico y los estudiantes voten proyectos de aula de forma formal.</li>
+                            <li><strong>Vinculación IDPS:</strong> Al empoderar la toma de decisiones, se proyecta un alza colateral en Motivación Escolar.</li>
+                        </ul>
+                    </div>
+
+                    <div class="box-suggestion" style="background-color: #FFF7ED; border-left-color: #F97316;">
+                        <h4 style="color:#9A3412;">📌 Foco 8° Año Básico (Meta: PC ➔ 76 pts)</h4>
+                        <p style="font-size:0.8rem; font-weight:bold;">Necesidad Técnica: Re-encantar al alumno con la responsabilidad cívica.</p>
+                        <ul>
+                            <li><strong>Actividad Core:</strong> <em>"Programa de Mediación Escolar entre Pares"</em> y <em>"Cabildos Escolares Interdisciplinarios"</em> cruzando Historia y Lenguaje. Otorgar al estudiante autonomía real para resolver conflictos cotidianos del patio.</li>
+                            <li><strong>Vinculación IDPS:</strong> Detener el desgaste de la Autoestima Académica visibilizando talentos de liderazgo no tradicionales.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box-activity" style="background-color: #ECFDF5; border-left-color: #10B981; margin-top: 15px;">
+                    <h4 style="color:#065F46;">📌 Foco II° Año Medio (Meta: Sostener PC 81 • Elevar AA ➔ 76 pts)</h4>
+                    <p style="font-size:0.8rem; font-weight:bold; color: #065F46;">Necesidad Técnica: Mitigar el menoscabo de la Autoestima Académica sin descuidar el civismo.</p>
+                    <ul>
+                        <li><strong>Actividad Core:</strong> Implementación del modelo de <em>"Aprendizaje más Servicio (A+S) - Proyectando Hualqui"</em>. Vincular el currículum técnico y humanista con intervenciones concretas en juntas de vecinos locales. Reemplazar debates competitivos clásicos por <em>"Paneles de Expertos Inclusivos"</em> donde todos tengan roles activos.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.course-report').forEach(report => report.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
