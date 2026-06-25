@@ -86,18 +86,21 @@
             display: flex;
             gap: 10px;
             margin-bottom: 25px;
+            overflow-x: auto;
+            padding-bottom: 5px;
         }
 
         .tab-btn {
             background: white;
             border: 2px solid transparent;
-            padding: 12px 24px;
+            padding: 12px 20px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
             color: var(--primary);
             box-shadow: var(--card-shadow);
+            white-space: nowrap;
         }
 
         .tab-btn.active {
@@ -108,15 +111,6 @@
 
         .course-report { display: none; }
         .course-report.active { display: block; }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 25px;
-        }
-
-        @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
 
         .card {
             background: white;
@@ -136,35 +130,11 @@
             padding-bottom: 8px;
         }
 
-        /* DISEÑO DE TABLA ADAPTADA PARA RESUMEN DE RESPUESTAS */
-        .table-container {
-            overflow-x: auto;
-            margin-top: 15px;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-            text-align: left;
-        }
-
-        .data-table th {
-            background-color: var(--primary);
-            color: white;
-            padding: 10px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .data-table td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #E2E8F0;
-        }
-
-        .data-table tr:nth-child(even) {
-            background-color: #F8FAFC;
-        }
+        .table-container { overflow-x: auto; margin-top: 15px; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; }
+        .data-table th { background-color: var(--primary); color: white; padding: 10px; font-family: 'Montserrat'; }
+        .data-table td { padding: 12px 10px; border-bottom: 1px solid #E2E8F0; }
+        .data-table tr:nth-child(even) { background-color: #F8FAFC; }
 
         .badge-habilidad {
             background-color: #EEF2F6;
@@ -185,24 +155,15 @@
         .bar-fill.accent { background: var(--accent); }
         .value-text { text-align: right; font-weight: bold; }
 
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px; }
+        @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
         .box-suggestion { background-color: #FFFDF5; border-left: 4px solid var(--accent); padding: 15px; border-radius: 4px; margin-bottom: 15px; }
         .box-suggestion h4 { margin: 0 0 5px 0; color: #78350F; font-family: 'Montserrat'; }
         .box-activity { background-color: #F0FDF4; border-left: 4px solid #22C55E; padding: 15px; border-radius: 4px; }
         .box-activity h4 { margin: 0 0 5px 0; color: #14532D; font-family: 'Montserrat'; }
-
         ul { margin: 0; padding-left: 20px; font-size: 0.9rem; }
-        li { margin-bottom: 6px; }
-
         .analysis-badge { background-color: #EFF6FF; border: 1px solid #BFDBFE; color: #1E40AF; padding: 12px 15px; border-radius: 6px; font-size: 0.9rem; margin-bottom: 15px; }
-        
-        .summary-box {
-            background-color: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 6px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-        .summary-box h4 { margin: 0 0 10px 0; font-family: 'Montserrat'; color: var(--primary); }
     </style>
 </head>
 <body>
@@ -212,134 +173,123 @@
             <img src="Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.jpg" onerror="this.src='Logo Hualqui COEMCO CMYK 72_Mesa de trabajo 1.JPG'; this.onerror=function(){this.src='logo.jpg'}" alt="Logo Colegio Concepción Hualqui" class="logo-institucional">
             <div>
                 <h1>Colegio Concepción Hualqui</h1>
-                <p style="margin: 3px 0 0 0; font-size: 0.9rem; color: #A5C4D4;">Plan de Formación Ciudadana • Diagnóstico de Evidencias Web y Datos SIMCE (RBD 4922)</p>
+                <p style="margin: 3px 0 0 0; font-size: 0.9rem; color: #A5C4D4;">Reporte Técnico PFC & Indicadores SIMCE (RBD 4922)</p>
             </div>
         </div>
-        <a href="index.html" class="nav-btn">Volver al Formulario de Ingreso</a>
+        <a href="index.html" class="nav-btn">Volver al Formulario</a>
     </div>
 
     <div class="container">
         
         <div class="tabs-container">
-            <button class="tab-btn active" onclick="switchTab('basica')">Enseñanza Básica (Foco 4° Básico)</button>
-            <button class="tab-btn" onclick="switchTab('media')">Enseñanza Media (Foco 2° Medio)</button>
+            <button class="tab-btn active" onclick="switchTab('basica')">Enseñanza Básica (1°-6°)</button>
+            <button class="tab-btn" onclick="switchTab('octavo')">8° Año Básico (SIMCE 2025)</button>
+            <button class="tab-btn" onclick="switchTab('media')">Enseñanza Media (I°-IV°)</button>
         </div>
 
         <div id="basica" class="course-report active">
-            
             <div class="card">
-                <h3 class="card-title">📊 Resumen Cuantitativo de Evidencias (Básica)</h3>
-                <div class="analysis-badge">
-                    <strong>Reporte Técnico Inicial:</strong> Monitoreo de respuestas reales registradas en la plataforma web.
+                <h3 class="card-title">📊 Resumen Cuantitativo: Enseñanza Básica</h3>
+                <div class="analysis-badge">Módulo de monitoreo inicial para el primer ciclo básico.</div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
+                        <tbody><tr><td><strong>4° Básico A</strong></td><td>Historia y Geografía</td><td><span class="badge-habilidad">Pensamiento crítico y reflexivo</span></td></tr></tbody>
+                    </table>
                 </div>
-                
-                <div class="summary-box">
-                    <h4>🔍 Estado del Pilotaje Actual:</h4>
-                    <p>El sistema de reportería se encuentra validado y recibiendo datos de manera limpia en Formspree. A continuación, se presenta la bitácora de control resumida con las entradas efectivas del ciclo básico.</p>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Indicadores SIMCE (IDPS) - 4° Básico</h3>
+                <div class="chart-bar-container">
+                    <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 74%;"></div></div><div class="value-text">74 pts</div></div>
+                    <div class="bar-row"><div class="bar-label">Convivencia Escolar</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 82%;"></div></div><div class="value-text">82 pts</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="octavo" class="course-report">
+            <div class="card">
+                <h3 class="card-title">📊 Diagnóstico Técnico: 8° Año Básico (Corte 2025)</h3>
+                <div class="analysis-badge" style="background-color: #FFF7ED; border-color: #FED7AA; color: #9A3412;">
+                    <strong>Foco SIMCE 2025:</strong> Este nivel representa la línea base más reciente del establecimiento previa a la transición a Enseñanza Media.
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" style="text-align: center; color: #64748B; padding: 20px;">Esperando ingresos de profesores de 8° Básico en el sitio web...</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <div class="grid-2">
                 <div class="card">
-                    <h3 class="card-title">📌 Habilidades COEMCO Registradas (Respuestas Web)</h3>
-                    <p style="font-size: 0.8rem; color:#64748B; margin-bottom: 15px;">Resumen explícito de los campos rellenados por los docentes en ejercicio.</p>
-                    
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Curso</th>
-                                    <th>Asignatura</th>
-                                    <th>Habilidad Destacada COEMCO</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>4° Básico A</strong></td>
-                                    <td>Historia y Geografía</td>
-                                    <td><span class="badge-habilidad">Pensamiento crítico y reflexivo</span></td>
-                                </tr>
-                                </tbody>
-                        </table>
+                    <h3 class="card-title">Indicadores SIMCE (IDPS) - 8° Básico 2025</h3>
+                    <p style="font-size: 0.8rem; color:#64748B;">Resultados oficiales Agencia de Calidad (RBD 4922).</p>
+                    <div class="chart-bar-container">
+                        <div class="bar-row">
+                            <div class="bar-label">Autoestima Académica</div>
+                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 75%;"></div></div>
+                            <div class="value-text">75 pts</div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">Convivencia Escolar</div>
+                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 79%;"></div></div>
+                            <div class="value-text">79 pts</div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">Participación Ciudadana</div>
+                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 71%;"></div></div>
+                            <div class="value-text">71 pts</div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">Hábitos de Vida Sal.</div>
+                            <div class="bar-wrapper"><div class="bar-fill accent" style="width: 76%;"></div></div>
+                            <div class="value-text">76 pts</div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title">Indicadores SIMCE (IDPS) - 4° Básico</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Puntajes institucionales de Desarrollo Personal y Social (Línea Base Histórica RBD 4922).</p>
-                    <div class="chart-bar-container">
-                        <div class="bar-row"><div class="bar-label">Autoestima Escolar</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 78%;"></div></div><div class="value-text">78 pts</div></div>
-                        <div class="bar-row"><div class="bar-label">Convivencia Escolar</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 82%;"></div></div><div class="value-text">82 pts</div></div>
-                        <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 74%;"></div></div><div class="value-text">74 pts</div></div>
-                        <div class="bar-row"><div class="bar-label">Hábitos Saludables</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 79%;"></div></div><div class="value-text">79 pts</div></div>
-                    </div>
+                    <h3 class="card-title">Análisis de Brechas (8° Básico)</h3>
+                    <p><strong>Triangulación Técnica:</strong> Los resultados del SIMCE 2025 en 8° básico muestran una **Participación Ciudadana (71 pts)** que se sitúa por debajo de los promedios históricos de 4° básico y 2° medio. Esto sugiere que el sentido de pertenencia y civismo tiende a debilitarse en el paso de la pre-adolescencia. El Plan de Formación Ciudadana en este nivel debe enfocarse en re-encantar al estudiante con los procesos democráticos escolares.</p>
                 </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">💡 Triangulación y Diagnóstico de Línea Base</h3>
-                <p>Al procesar la bitácora inicial, observamos que las asignaturas tradicionales abren la marcha de datos. El foco estratégico del colegio radica en movilizar el indicador SIMCE de **Participación Ciudadana (74 pts)** utilizando los registros de la tabla superior para velar por que todas las asignaturas (y no solo Historia) tributen al Plan de Formación Ciudadana Ley 20.911.</p>
             </div>
 
             <div class="grid-2">
                 <div class="box-suggestion">
-                    <h4>🎯 Sugerencias Pedagógicas para el Ciclo</h4>
+                    <h4>🎯 Sugerencias Pedagógicas (8° Básico)</h4>
                     <ul>
-                        <li><strong>Socialización del Instrumento:</strong> Compartir el enlace `index.html` en el próximo Consejo de Profesores técnico para iniciar el llenado oficial de evidencias de aula.</li>
+                        <li><strong>Liderazgo y Mediación:</strong> Capacitar a los estudiantes en resolución de conflictos entre pares para elevar la percepción de convivencia.</li>
+                        <li><strong>Debates de Transición:</strong> Preparar foros sobre la Ley 20.911 enfocados en los desafíos de la vida en Enseñanza Media.</li>
                     </ul>
                 </div>
                 <div class="box-activity">
-                    <h4>🏫 Actividades Prácticas Sugeridas</h4>
+                    <h4>🏫 Actividades Recomendadas</h4>
                     <ul>
-                        <li><strong>Marcha Blanca Estudiantil:</strong> Diseñar la primera semana de recolección de datos enfocada en las asignaturas de Historia y Orientación de 1° a 6° Básico.</li>
+                        <li><strong>"Mi Primer Voto":</strong> Simulación de procesos electorales estudiantiles con apoyo del TRICEL del colegio.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div id="media" class="course-report">
-            
             <div class="card">
-                <h3 class="card-title">📊 Resumen Cuantitativo de Evidencias (Media)</h3>
-                <div class="analysis-badge" style="background-color: #FDF2F8; border-color: #FBCFE8; color: #9D174D;">
-                    <strong>Reporte Técnico Inicial:</strong> Estado de la recolección digital para el ciclo de Enseñanza Media (7° a IV° Medio).
+                <h3 class="card-title">📊 Resumen Cuantitativo: Enseñanza Media</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Curso</th><th>Asignatura</th><th>Habilidad Destacada COEMCO</th></tr></thead>
+                        <tbody><tr><td><strong>2° Medio B</strong></td><td>Educación Ciudadana / Historia</td><td><span class="badge-habilidad" style="background-color:#FDF2F8; color:#9D174D; border-left-color:#9D174D;">Participación y trabajo colab.</span></td></tr></tbody>
+                    </table>
                 </div>
             </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <h3 class="card-title">📌 Habilidades COEMCO Registradas (Respuestas Web)</h3>
-                    <p style="font-size: 0.8rem; color:#64748B; margin-bottom: 15px;">Resumen explícito de los campos rellenados en el ciclo superior.</p>
-                    
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Curso</th>
-                                    <th>Asignatura</th>
-                                    <th>Habilidad Destacada COEMCO</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>2° Medio B</strong></td>
-                                    <td>Educación Ciudadana / Historia</td>
-                                    <td><span class="badge-habilidad" style="background-color:#FDF2F8; color:#9D174D; border-left-color:#9D174D;">Participación y trabajo colab.</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title">Indicadores SIMCE (IDPS) - 2° Medio</h3>
-                    <p style="font-size: 0.8rem; color:#64748B;">Medición oficial estandarizada de la Agencia de Calidad para el ciclo medio (RBD 4922).</p>
-                    <div class="chart-bar-container">
-                        <div class="bar-row"><div class="bar-label">Autoestima Escolar</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 72%;"></div></div><div class="value-text">72 pts</div></div>
-                        <div class="bar-row"><div class="bar-label">Convivencia Escolar</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 79%;"></div></div><div class="value-text">79 pts</div></div>
-                        <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 81%;"></div></div><div class="value-text">81 pts</div></div>
-                        <div class="bar-row"><div class="bar-label">Clima de Aula</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 75%;"></div></div><div class="value-text">75 pts</div></div>
-                    </div>
+            <div class="card">
+                <h3 class="card-title">Indicadores SIMCE (IDPS) - 2° Medio</h3>
+                <div class="chart-bar-container">
+                    <div class="bar-row"><div class="bar-label">Participación Ciudadana</div><div class="bar-wrapper"><div class="bar-fill accent" style="width: 81%;"></div></div><div class="value-text">81 pts</div></div>
                 </div>
             </div>
         </div>
